@@ -1,0 +1,100 @@
+<div class="search-container">
+  <form class="mb-3 d-flex justify-content-center" (ngSubmit)="onSearch()">
+    <div class="input-group search-bar-wrapper">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        name="searchQuery"
+        placeholder="Please enter an artist name"
+        required
+        class="form-control"
+      />
+      <button
+        type="submit"
+        [disabled]="!searchQuery || loading"
+        class="btn btn-primary d-flex align-items-center justify-content-center gap-2"
+      >
+        <span>Search</span>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+      <button
+        type="button"
+        (click)="onClear()"
+        class="btn custom-clear-btn"
+      >
+        Clear
+      </button>
+    </div>
+  </form>
+
+  <!-- Error message if any -->
+  <div *ngIf="errorMessage" class="d-flex justify-content-center">
+    <div class="alert alert-danger w-100" style="max-width: 1100px;">
+      {{ errorMessage }}
+    </div>
+  </div>
+  
+
+  <!-- Artist Cards (only if not hidden) -->
+  <div class="d-flex justify-content-center" *ngIf="!hideArtistCards">
+    <div class="artist-scroll-wrapper d-flex overflow-auto horizontal-scroll">
+      <div
+        class="artist-card-wrapper"
+        *ngFor="let artist of artists"
+        (click)="viewDetails(artist.id)"
+      >
+        <div
+          class="card artist-card h-100 d-flex flex-column position-relative"
+          [ngClass]="{ 'selected-artist-card': artist.id === selectedArtistId }"
+          style="width: 220px; height: 300px;"
+        >
+          <img
+            [src]="artist.image"
+            class="card-img-top"
+            alt="{{ artist.name }}"
+            style="height: 220px; object-fit: cover;"
+          />
+
+          <!-- Favorite toggle -->
+          <ng-container *ngIf="authService.currentUser$ | async as user">
+            <button
+              *ngIf="authService.isLoggedIn"
+              class="favorite-btn position-absolute top-0 end-0 m-2"
+              (click)="toggleFavorite(artist, $event)"
+            >
+              <i class="bi"
+                [class.bi-star-fill]="isFavorite(artist)"
+                [class.bi-star]="!isFavorite(artist)"
+                [style.color]="isFavorite(artist) ? 'goldenrod' : 'white'">
+              </i>
+            </button>
+          </ng-container>
+
+
+          <div
+            class="card-body p-2"
+            [ngClass]="{
+              'selected-body': artist.id === selectedArtistId,
+              'default-body': artist.id !== selectedArtistId
+            }"
+          >
+            <p class="card-text text-white text-center mb-0">
+              {{ artist.name }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Render the details component below if an artist is selected -->
+  <div *ngIf="selectedArtistId">
+    <app-details
+      [artistId]="selectedArtistId"
+      (artistNameClicked)="onArtistNameClicked()"
+    ></app-details>
+  </div>
+</div>
+

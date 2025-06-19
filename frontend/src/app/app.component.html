@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<!-- Toast Notifications -->
+<app-notification></app-notification>
+
+<main class="container py-4">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Category Modal -->
+<app-category-modal
+  *ngIf="showCategoryModal"
+  [artworkId]="selectedArtworkId"
+  [artworkTitle]="selectedArtworkTitle"
+  [artworkThumbnail]="selectedArtworkThumbnail"
+  [artworkYear]="selectedArtworkYear"
+  (closed)="closeCategoryModal()"
+></app-category-modal>
+
+<app-footer></app-footer>

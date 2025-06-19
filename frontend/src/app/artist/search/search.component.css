@@ -1,0 +1,128 @@
+.horizontal-row {
+  white-space: nowrap;
+}
+
+.artist-card {
+  padding: 0;
+  transition: border 0.3s ease;
+  border: none !important;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.selected-artist-card {
+  border: 10px solid #084484;
+}
+
+.card-body {
+  margin-top: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: auto;
+  min-height: unset;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.card-body.default-body {
+  background-color: #182434;
+  transition: background-color 0.3s ease;
+}
+
+.card-body.selected-body {
+  background-color: #3f5c7c;
+  transition: background-color 0.3s ease;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.btn-primary {
+  background-color: #04447c;
+  border-color: #04447c;
+}
+
+.custom-clear-btn {
+  background-color: #647070;
+  border-color: #647070;
+  color: white;
+}
+
+.custom-clear-btn:hover {
+  background-color: #505b5b;
+  border-color: #505b5b;
+  color: white;
+}
+
+.favorite-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #084484;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+}
+
+
+.favorite-btn i {
+  font-size: 1.5rem;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.bi-star {
+  color: transparent;
+  -webkit-text-stroke: 0.5px white;
+  stroke: white;
+  fill: none;
+}
+
+.bi-star-fill {
+  color: #DAA520;
+  -webkit-text-stroke: 0;
+  stroke: none;
+}
+
+.search-bar-wrapper {
+  max-width: 1100px;
+  width: 100%;
+}
+
+.artist-scroll-wrapper {
+  max-width: 1100px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 0;
+  scrollbar-width: auto;
+}
+
+.artist-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.artist-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.artist-card-wrapper {
+  flex: 0 0 auto;
+  margin-right: 2px;
+}
+
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+}
+
+.artist-card:hover .card-body.default-body {
+  background-color: #084484;
+}

@@ -1,0 +1,44 @@
+
+<div *ngIf="loading" class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div *ngIf="favorites.length > 0; else noFavorites">
+  <div class="mx-auto" style="max-width: 1100px; width: 100%;">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+      <div class="col d-flex justify-content-center" *ngFor="let fav of favorites" (click)="viewArtistDetails(fav.artistId)" style="cursor: pointer;">
+        <div class="card text-white position-relative border-0" style="height: 180px; overflow: hidden; width: 400px;">
+          <img [src]="fav.thumbnail" (error)="fav.thumbnail = 'assets/artsy_logo.png'" class="card-img-top" alt="Artist Image"style="object-fit: cover; filter: blur(3px);" />
+
+          <div class="card-img-overlay d-flex flex-column justify-content-between bg-dark bg-opacity-50 p-3">
+            <div>
+              <h5 class="card-title fw-bold">{{ fav.name }}</h5>
+              <p class="card-text mb-1">{{ fav.nationality }}</p>
+              <p class="card-text mb-1">{{ fav.years }}</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <small class="text-white fw-semibold">{{ fav.relativeTime }}</small>
+
+
+              <a href="#" class="text-white text-decoration-underline"
+                 (click)="removeFavorite(fav.artistId, $event)">Remove</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noFavorites>
+  <div class="d-flex justify-content-center">
+    <div class="alert alert-danger w-100 text-center" style="max-width: 1100px;">
+      No favorite artists.
+    </div>
+  </div>
+</ng-template>
+

@@ -1,0 +1,9 @@
+/* frontend\src\app\shared\footer\footer.component.css */
+.footer {
+    position: fixed;  /* Make the footer always stick to the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;     /* Ensure it appears above other content if needed */
+  }
+  

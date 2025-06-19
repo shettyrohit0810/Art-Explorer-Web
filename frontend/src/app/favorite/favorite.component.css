@@ -1,0 +1,6 @@
+/* Optional: Center the entire favorites block */
+.favorites-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}

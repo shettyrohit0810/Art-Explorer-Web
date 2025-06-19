@@ -1,0 +1,28 @@
+<!-- notification.component.html -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 2000; margin-top: 70px;">
+
+  <div
+    *ngFor="let n of notificationService.notifications$ | async"
+    class="toast show text-white mb-2"
+    [ngClass]="{
+      'bg-success': n.type === 'success',
+      'bg-danger': n.type === 'danger'
+    }"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    style="min-width: 250px;"
+  >
+    <div class="d-flex">
+      <div class="toast-body">
+        {{ n.message }}
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white me-2 m-auto"
+        aria-label="Close"
+        (click)="notificationService.remove(n.id)"
+      ></button>
+    </div>
+  </div>
+</div>

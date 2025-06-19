@@ -1,0 +1,61 @@
+<!-- frontend\src\app\category-modal\category-modal.component.html -->
+<div class="modal-backdrop" (click)="close()"></div>
+<div class="modal">
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <div class="header-info">
+      <img [src]="artworkThumbnail" alt="{{ artworkTitle }}" class="header-artwork-thumbnail">
+      <div class="header-text">
+        <p class="artwork-title">{{ artworkTitle }}</p>
+        <p class="artwork-year" *ngIf="artworkYear">{{ artworkYear }}</p>
+      </div>
+    </div>
+    <button (click)="close()" class="close-btn">X</button>
+  </div>
+  
+
+ 
+
+  <!-- Modal Body -->
+  <div class="modal-body">
+
+    <!-- Spinner -->
+    <ng-container *ngIf="loading; else loadedContent">
+      <div class="d-flex justify-content-center py-2">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </ng-container>
+  
+    <!-- Actual content -->
+    <ng-template #loadedContent>
+      <div *ngIf="errorMessage" style="color:red;" class="mb-1">
+        {{ errorMessage }}
+      </div>
+  
+      <!-- Categories Grid -->
+      <div *ngIf="categories && categories.length; else noCategories">
+        <div class="categories-container">
+          <div class="category-card" *ngFor="let category of categories">
+            <img
+              [src]="category.thumbnail"
+              [alt]="category.name"
+              class="category-thumbnail"
+            />
+            <p class="category-name">{{ category.name }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- No Categories Fallback -->
+      <ng-template #noCategories>
+        <div class="no-categories-message">
+          No categories.
+        </div>
+      </ng-template>
+      
+      
+    </ng-template>
+  
+</div>

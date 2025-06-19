@@ -1,0 +1,35 @@
+/* frontend\src\app\auth\register\register.component.css */
+.container {
+  padding-top: 5vh;
+}
+
+  
+  /* Card styling */
+  .register-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  input.form-control.is-invalid {
+    padding-right: 2.5rem;
+  }
+  
+  input.is-invalid {
+    background-image: none !important; /* remove Bootstrap default icon */
+  }
+  
+  .invalid-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    pointer-events: none; /* prevent blocking clicks */
+  }
+  
+
+:host ::ng-deep input.is-invalid {
+  background-image: none !important;
+}

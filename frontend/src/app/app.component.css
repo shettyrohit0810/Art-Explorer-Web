@@ -1,0 +1,5 @@
+/* frontend\src\app\app.component.css */
+main {
+    margin-bottom: 60px; /* Enough to not hide content behind the fixed footer */
+  }
+  

@@ -1,0 +1,151 @@
+/* frontend\src\app\category-modal\category-modal.component.css */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1040;
+}
+
+.modal {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  padding: 0;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 95vw;
+  max-height: 85vh;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent scroll bleed */
+}
+
+.modal-body {
+  font-size: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  overflow-y: auto;
+  flex-grow: 1;               /* Makes body take remaining height */
+  max-height: calc(80vh - 65px); /* Leave space for header + padding */
+}
+
+
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Header info: contains artwork thumbnail and stacked text */
+.header-info {
+  display: flex;
+  align-items: center;
+}
+
+.header-artwork-thumbnail {
+  width: 50px;
+  height: auto;
+  margin-right: 1rem;
+  margin-left: 0;          /* Remove default spacing */
+  margin-top: 0.25rem;     /* Pull image upward */
+}
+
+
+/* Ensures the title and year are stacked vertically */
+.header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+
+.artwork-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+}
+
+.artwork-year {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+
+
+.modal-body {
+  font-size: 1rem;
+  padding-top: 0.1rem;
+}
+
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start; /* ⬅️ Align categories to the left */
+  margin-top: 0;               /* ⬅️ Remove any top margin */
+  padding-left: 0.1rem;        /* ⬅️ Optional: slight left offset */
+  padding-right: 0.1rem;
+}
+
+.category-card {
+  width: 200px;
+  text-align: center;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0;               /* ⬅️ Remove extra spacing if any */
+}
+
+.category-thumbnail {
+  width: 100%;
+  height: auto;
+  max-height: 250px;           /* 👈 optional cap */
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+
+.category-name {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+
+.no-categories-message {
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  margin: 1rem auto 0 auto;
+  max-width: 90%;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}

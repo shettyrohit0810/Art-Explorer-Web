@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* ❌ Prevents scroll bar */
+  }
+  
+  .full-height-wrapper {
+    height: 100vh;
+  }
+
+/* ✅ Prevent Bootstrap from adding any default feedback icons */
+input.form-control.is-invalid,
+input.ng-invalid.ng-touched {
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: right calc(0.375em + 0.1875rem) center !important;
+  background-size: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Completely remove ::after pseudo-icon that Bootstrap injects */
+input.form-control.is-invalid::after,
+input.ng-invalid.ng-touched::after {
+  content: none !important;
+  display: none !important;
+}
+
+.was-validated input.form-control:invalid {
+  background-image: none !important;
+}
+
+  
+
+  .card input.form-control.is-invalid::after {
+    content: none !important;
+  }
+  
