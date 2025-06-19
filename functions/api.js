@@ -3,18 +3,19 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const serverless = require('serverless-http');
+require('dotenv').config();
 
 // Import routes
-const authRoutes = require('../../routes/auth');
-const artistRoutes = require('../../routes/artist');
-const favoritesRoutes = require('../../routes/favorites');
-const genesRoutes = require('../../routes/genes');
+const authRoutes = require('../routes/auth');
+const artistRoutes = require('../routes/artist');
+const favoritesRoutes = require('../routes/favorites');
+const genesRoutes = require('../routes/genes');
 
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://your-app-name.netlify.app',
+  origin: process.env.FRONTEND_URL || 'https://art-explorer-web.netlify.app',
   credentials: true
 }));
 
@@ -27,13 +28,13 @@ mongoose.connect(process.env.MONGODB_URI)
   .catch(err => console.error('MongoDB connection error:', err));
 
 // API routes
-app.use('/auth', authRoutes);
-app.use('/artists', artistRoutes);
-app.use('/favorites', favoritesRoutes);
-app.use('/genes', genesRoutes);
+app.use('/.netlify/functions/api/auth', authRoutes);
+app.use('/.netlify/functions/api/artists', artistRoutes);
+app.use('/.netlify/functions/api/favorites', favoritesRoutes);
+app.use('/.netlify/functions/api/genes', genesRoutes);
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/.netlify/functions/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
