@@ -1,14 +1,10 @@
 // frontend/src/app/auth/login/login.component.ts
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
-import { RouterModule, Router } from '@angular/router'; // Import RouterModule
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [FormsModule, NgIf, RouterModule], // Add RouterModule
   templateUrl: './login.component.html'
 })
 export class LoginComponent {

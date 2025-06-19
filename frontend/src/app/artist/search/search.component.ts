@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
 import { DetailsComponent } from '../details/details.component';
 import { ArtistService } from '../artist.service';
 import { AuthService } from '../../auth/auth.service';
 import { NotificationService } from '../../notification.service';
 
-
-
 @Component({
   selector: 'app-search',
-  standalone: true,
-  imports: [CommonModule, FormsModule, NgIf, NgFor, NgClass, DetailsComponent],
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })

@@ -1,14 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NotificationService } from '../notification.service';
 
-
 @Component({
   selector: 'app-favorites',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.css']
 })

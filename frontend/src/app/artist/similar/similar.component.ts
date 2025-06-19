@@ -9,15 +9,12 @@ import {
   SimpleChanges,
   OnDestroy
 } from '@angular/core';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 import { ArtistService } from '../artist.service';
 import { AuthService } from '../../auth/auth.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-similar',
-  standalone: true,
-  imports: [NgIf, NgFor, AsyncPipe],
   templateUrl: './similar.component.html',
   styleUrls: ['./similar.component.css']
 })

@@ -7,20 +7,14 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ArtistService } from '../artist.service';
 import { HttpClient } from '@angular/common/http';
-import { CategoryModalComponent } from '../../category-modal/category-modal.component';
-import { SimilarComponent } from '../similar/similar.component';
 import { AuthService } from '../../auth/auth.service';
 import { ModalService } from '../../modal.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-details',
-  standalone: true,
-  imports: [NgIf, NgFor, FormsModule, CategoryModalComponent, SimilarComponent],
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })

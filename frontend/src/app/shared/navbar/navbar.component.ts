@@ -1,14 +1,11 @@
 // frontend\src\app\shared\navbar\navbar.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router'; // <-- import RouterModule
+import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
 import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
-  imports: [CommonModule, RouterModule], //  <-- Add RouterModule here
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
@@ -28,9 +25,6 @@ export class NavbarComponent {
         error: () => this.notificationService.show('Logout failed', 'danger')
       });
     }
-
-  
-  
 
   deleteAccount() {
     if (confirm('Are you sure you want to delete your account?')) {

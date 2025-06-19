@@ -1,12 +1,9 @@
 // frontend\src\app\category-modal\category-modal.component.ts
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgIf, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-category-modal',
-  standalone: true,
-  imports: [NgIf, NgFor],
   templateUrl: './category-modal.component.html',
   styleUrls: ['./category-modal.component.css']
 })

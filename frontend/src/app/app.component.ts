@@ -1,25 +1,10 @@
 // frontend\src\app\app.component.ts
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { RouterOutlet } from '@angular/router';
-import { CategoryModalComponent } from './category-modal/category-modal.component';
-import { NgIf } from '@angular/common';
 import { ModalService } from './modal.service';
 import { AuthService } from './auth/auth.service';
-import { NotificationComponent } from './notification/notification.component'; // Added NotificationComponent
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    NavbarComponent,
-    FooterComponent,
-    RouterOutlet,
-    CategoryModalComponent,
-    NgIf,
-    NotificationComponent  // Added to imports
-  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
