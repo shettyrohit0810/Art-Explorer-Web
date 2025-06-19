@@ -1,0 +1,23 @@
+runtime: nodejs20
+instance_class: F1
+
+env_variables:
+  NODE_ENV: 'production'
+  MONGODB_URI: 'mongodb+srv://shettyrohit0810:Iamrohit%400810@webtech-hw-3.zoatxs0.mongodb.net/webtechdb?retryWrites=true&w=majority&appName=WebTech-HW-3'
+  JWT_SECRET: 'SuperSecretJWTKey123'
+  ARTSY_CLIENT_ID: '2a751ca7e3d7b0b7125b'
+  ARTSY_CLIENT_SECRET: '763767c91579c192345492c5a4967ebb'
+
+handlers:
+  - url: /api/.*
+    script: auto
+
+  - url: /(.*\..+)$
+    static_files: frontend/dist/frontend/browser/\1
+    upload: frontend/dist/frontend/browser/.*
+
+  - url: /.*
+    static_files: frontend/dist/frontend/browser/index.html
+    upload: frontend/dist/frontend/browser/index.html
+
+entrypoint: node app.js

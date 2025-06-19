@@ -1,0 +1,18 @@
+# Copy this file to .env and fill in your actual values
+
+# MongoDB Connection
+# For local development, you can use MongoDB Atlas (free tier) or local MongoDB
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/artsy-app
+
+# JWT Secret (generate a random string for security)
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+
+# Artsy API Credentials (get these from https://developers.artsy.net/)
+ARTSY_CLIENT_ID=your-artsy-client-id
+ARTSY_CLIENT_SECRET=your-artsy-client-secret
+
+# Frontend URL for CORS
+FRONTEND_URL=http://localhost:4200
+
+# Server Port
+PORT=8080 
