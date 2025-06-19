@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --configuration production",
-    "build:all": "npm install && ng build --configuration production",
-    "build:netlify": "cd ../functions && npm install && cd ../frontend && ng build --configuration production",
+    "build": "npx @angular/cli@11.2.0 build --configuration production",
+    "build:all": "npm install && npx @angular/cli@11.2.0 build --configuration production",
+    "build:netlify": "cd ../functions && npm install && cd ../frontend && npx @angular/cli@11.2.0 build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
