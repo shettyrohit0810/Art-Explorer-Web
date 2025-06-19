@@ -1,6 +1,6 @@
 [build]
   base = "frontend"
-  command = "rm -rf node_modules package-lock.json .npm .cache .angular dist && npm cache clean --force && npm install --no-package-lock --force --legacy-peer-deps --no-audit --prefer-offline=false && npm run build"
+  command = "rm -rf node_modules package-lock.json .npm .cache .angular dist && npm cache clean --force && npm install --no-package-lock --force --legacy-peer-deps --no-audit --prefer-offline=false --no-optional && npm run build"
   publish = "dist/frontend/browser"
 
 [functions]
@@ -17,4 +17,4 @@
   status = 200
 
 [build.environment]
-  NODE_VERSION = "16" 
+  NODE_VERSION = "14" 
